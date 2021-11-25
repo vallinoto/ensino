@@ -1,3 +1,6 @@
 ensino/apoio/
 apoio/
 .DS_Store
+temp/
+ext-manip-dados/.ipynb_checkpoints/
+ext-manip-dados/aulas/.ipynb_checkpoints/
