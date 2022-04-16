@@ -19,7 +19,7 @@ FROM users
 --WHERE name NOT LIKE '%da Silva'
 
 --Comparação de números e datas
--- WHERE price > 100
+-- WHERE user_id > 100
 -- WHERE created_at > '2018-01-01'
 -- WHERE user_id BETWEEN 10 AND 100
 -- WHERE created_at BETWEEN '2018-01-01' AND '2018-03-01'
@@ -35,25 +35,10 @@ FROM users
 -- WHERE user_id NOT IN (112, 113)
 
 
-SELECT user_id,
-    COUNT(*) AS num_pedidos,
-    SUM(price) AS total_gasto,
-    AVG(price) AS media_preco,
-    MIN(created_at) AS data_primeiro_pedido,
-    MAX(created_at) AS data_ultimo_pedido
-FROM requests
-WHERE name LIKE 'Maria%'
-GROUP BY user_id
-
-
 -- HAVING é utilizando quando é necessário filtrar um resultado agregado, o que não é
 -- possível no WHERE
 SELECT user_id,
     COUNT(*) AS num_pedidos,
-    SUM(price) AS total_gasto,
-    AVG(price) AS media_preco,
-    MIN(created_at) AS data_primeiro_pedido,
-    MAX(created_at) AS data_ultimo_pedido
 FROM requests
 WHERE name LIKE 'Maria%'
 GROUP BY user_id
@@ -116,6 +101,9 @@ ORDER BY num_leads;
 --● Qual é a média de receita (request_revenue) que cada pedido traz?
 SELECT AVG(request_revenue) AS avg_request_revenue
 FROM requests;
+
+
+
 
 --● Quantos pedidos foram realizados em cada categoria?
 SELECT name, COUNT(*) AS num_requests
